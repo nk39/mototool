@@ -1,0 +1,24 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DDTSChecker", "DDTSChecker.vcproj", "{3CCFDE15-3659-4990-B701-E1D8B2A8278A}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "TestSetup", "..\TestSetup\TestSetup.vdproj", "{55AE3699-1CF4-4C47-9576-137437546D58}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3CCFDE15-3659-4990-B701-E1D8B2A8278A}.Debug|Win32.ActiveCfg = Debug|Win32
+		{3CCFDE15-3659-4990-B701-E1D8B2A8278A}.Debug|Win32.Build.0 = Debug|Win32
+		{3CCFDE15-3659-4990-B701-E1D8B2A8278A}.Release|Win32.ActiveCfg = Release|Win32
+		{3CCFDE15-3659-4990-B701-E1D8B2A8278A}.Release|Win32.Build.0 = Release|Win32
+		{55AE3699-1CF4-4C47-9576-137437546D58}.Debug|Win32.ActiveCfg = Debug
+		{55AE3699-1CF4-4C47-9576-137437546D58}.Release|Win32.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,17 @@
+function perform_login(name, pass)
+{
+	alert('world');
+	alert(cipt_login_form.cid);
+	
+	cipt_login_form.cid.value=name;
+	cipt_login_form.pswd.value=pass;
+	
+	alert("name: " + cipt_login_form.cid.value);
+	alert("pass: " + cipt_login_form.pswd.value);
+	cipt_login_form.submit();
+}
+
+function sayHello()
+{
+	alert('hi');
+}
