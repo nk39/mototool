@@ -1,0 +1,610 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>CIPT</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<script src="neal_helper.js" type="text/javascript"></script>
+<script language="JavaScript">
+<!--
+
+//cipt variables for easy change
+//only prod/sbox/dev/jhan2
+var cipt_type   =   'prod'; 
+var cipt_ver    =   '2.5.3.2';
+var cipt_rdate  =   '01/03/2007';
+var cipt_addr;
+
+if ( cipt_type == 'sbox' ) {
+    cipt_addr = 'http://ciptweb.cig.mot.com:9999/';
+} else if ( cipt_type == 'dev' ) {
+    cipt_addr = 'http://ciptweb.cig.mot.com:8888/';
+} else if ( cipt_type == 'jhan2' ) {
+    cipt_addr = 'http://ciptweb.cig.mot.com:6666/';
+} else {
+    cipt_addr = 'http://ciptweb.cig.mot.com:8000/';
+}
+
+
+function mmLoadMenus() {
+  if (window.mm_menu_0815084203_0) return;
+    window.mm_menu_0815084203_0_1 = new Menu("Performance&nbsp;Measurement",89,18,"",12,"#000000","#FFFFFF","#CCCCCC","#000084","left","middle",3,0,1000,-5,7,true,true,true,0,true,true);
+    mm_menu_0815084203_0_1.addMenuItem("Roadmaps");
+     mm_menu_0815084203_0_1.hideOnMouseOut=true;
+     mm_menu_0815084203_0_1.bgColor='#555555';
+     mm_menu_0815084203_0_1.menuBorder=1;
+     mm_menu_0815084203_0_1.menuLiteBgColor='#FFFFFF';
+     mm_menu_0815084203_0_1.menuBorderBgColor='#777777';
+  window.mm_menu_0815084203_0 = new Menu("root",187,18,"",12,"#000000","#FFFFFF","#CCCCCC","#000084","left","middle",3,0,1000,-5,7,true,true,true,0,true,true);
+  mm_menu_0815084203_0.addMenuItem(mm_menu_0815084203_0_1);
+   mm_menu_0815084203_0.hideOnMouseOut=true;
+   mm_menu_0815084203_0.childMenuIcon="arrows.gif";
+   mm_menu_0815084203_0.bgColor='#555555';
+   mm_menu_0815084203_0.menuBorder=1;
+   mm_menu_0815084203_0.menuLiteBgColor='#FFFFFF';
+   mm_menu_0815084203_0.menuBorderBgColor='#777777';
+
+mm_menu_0815084203_0.writeMenus();
+} // mmLoadMenus()
+//-->
+</script>
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function MM_reloadPage(init) {  //reloads the window if Nav4 resized
+  if (init==true) with (navigator) {if ((appName=="Netscape")&&(parseInt(appVersion)==4)) {
+    document.MM_pgW=innerWidth; document.MM_pgH=innerHeight; onresize=MM_reloadPage; }}
+  else if (innerWidth!=document.MM_pgW || innerHeight!=document.MM_pgH) location.reload();
+}
+MM_reloadPage(true);
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_showHideLayers() { //v6.0
+  var i,p,v,obj,args=MM_showHideLayers.arguments;
+  for (i=0; i<(args.length-2); i+=3) if ((obj=MM_findObj(args[i]))!=null) { v=args[i+2];
+    if (obj.style) { obj=obj.style; v=(v=='show')?'visible':(v=='hide')?'hidden':v; }
+    obj.visibility=v; }
+}
+//-->
+</script>
+<link rel="stylesheet" type="text/css" href="NN4.css">
+<style type="text/css" media="all">
+  <!--@import "http://ecdn.mot.com/standards/css/intranet.css";//-->
+ </style>
+ <script language="javascript" type="text/javascript" src="http://ecdn.mot.com/standards/css/mot_intranet.js"></script>
+ <!-- end: Motorola Intranet CSS and JavaScript-->
+ <title>Motorola Intranet Standards Example</title>
+ <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+ <meta name="keyword" content="">
+ <meta name="description" content="">
+ <meta name="copyright" content="Copyright 1994-2006 Motorola, Inc. All Rights Reserved.">
+
+<style>
+.customSelect{
+  border: inset;
+  font-family: MS Sans Serif;
+  font-size: 80%;
+  width: 200px;
+  cursor: default;
+}
+</style>
+<script>
+function toggleHighlight(div,sel,num){
+  option=document.f[sel][num]
+  div.style.color=(option.selected ? 'black':'highlighttext');
+  div.style.backgroundColor=(option.selected ? 'white':'highlight');
+  option.selected=!option.selected;
+}
+</script>
+
+
+
+      <!-- end: (GB) Global Banner -->
+      <!-- begin: (GN) Global Navigation -->
+<style type="text/css">
+.BusinessFunctionNavigation select {
+    font-size: 1.4em;
+    color:#000000;
+    font-family:Arial, Verdana,Geneva,Helvetica,sans-serif;
+    margin: 0px 0px 0px 0px;
+}
+</style> 
+<script>
+document.write("<script language='JavaScript' src='" + cipt_addr + "/src/html/md5.js'><\/script>");
+document.write("<script language='JavaScript' src='" + cipt_addr + "/src/html/cipt.js'><\/script>");
+</script>
+</head>
+
+<body>
+<input type=button onclick="javascript:perform_login('aaa','bbb');">
+<script language="JavaScript">
+//cipt login related, after md5.js and cipt.js has been loaded
+var cipt_cid		= readCookie('cipt_cid');
+var cipt_verified	= hasBeenLogin();
+var cipt_error		= readCookie('cipt_error');
+</script>
+<!--
+<script language="JavaScript1.2">mmLoadMenus();</script>
+-->
+<table cellSpacing="0" cellPadding="0" width="100%" border="0">
+  <tr class="IntranetTopNavigation" > 
+    <td align="right" width="100%"> <a href="http://www.motorola.com/">Motorola</a> 
+      - <a href="http://my.mot.com/">My Motorola</a> - <a href="http://compass.mot.com/">Compass</a> 
+      - <a href="http://motds.mot.com">Directory</a>&nbsp; 
+      <!-- begin: (GB) Global Banner -->
+      <table width="100%" cellpadding="0" cellspacing="0" border="0" class="GlobalBanner">
+        <tr class="bg"> 
+          <td class="logo" width="50%" rowspan="2"> <img border="0" src="images/mot.gif"></td>
+          <td class="title" width="50%" rowSpan="2">Global Quality Operations&nbsp;</td>
+          <td class="divider" rowSpan="2">&nbsp;</td>
+          <td class="internal"></td>
+          <td class="corner" rowSpan="2">&nbsp;
+            <p>&nbsp;</p>
+          </td>
+        </tr>
+        <tr class="bg"> 
+          <td class="search" nowrap> 
+            <!-- begin: Intranet Search -->
+      <form method="get" name="gmi_search_compass" action="http://compass.mot.com/sitespecific.pl" onSubmit="javascript:if(document.gmi_search_compass.searchLocation.options[document.gmi_search_compass.searchLocation.selectedIndex].text=='Core Directory'){document.gmi_search_motds.txtValue1.value=document.gmi_search_compass.find.value; document.gmi_search_motds.submit(); return false;}; return true;">
+        <input name="site" type="hidden" value="my.mot.com OR ceo.mot.com">
+        <input name="find" type="text" size="9" value="Enter Search" defaultValue="Enter Search" onFocus="if(this.value==this.defaultValue)this.value='';">
+        <select name="searchLocation" onChange="javascript:if(this.options[this.selectedIndex].text=='Advanced Search') document.gmi_search_compass.submit();">
+            <option selected >All Motorola</option>
+            <option>Compass</option>
+            <option>Core Directory</option>
+            <option value="This Site">--------------------</option>
+            <option>Advanced Search</option>
+        </select>
+        <input type="image" src="http://ecdn.mot.com/standards/images/global_arrow.gif" class="arrowButtonLg" alt="Submit" name="Submit" id="searchSubmit" width="21" height="21" border="0">
+            </form>
+            <form method="get" name="gmi_search_motds" action="http://motds.mot.com/default.asp">
+              <input name="numParms" type="hidden" value="3">
+              <input name="hasSubmitted" type="hidden" value="1">
+              <input name="addParm" type="hidden" value="0">
+              <input name="delParm" type="hidden" value="0">
+              <input name="selFormat" type="hidden" value="html">
+              <input name="selOutput" type="hidden" value="nonav">
+              <input name="selAttrib1" type="hidden" value="multiple">
+              <input name="selLogic1" type="hidden" value="contains">
+              <input name="txtValue1" type="hidden" value="">
+            </form>
+            <!-- end: Intranet Search -->
+          </td>
+        </tr>
+      </table>
+ <table class="BusinessFunctionNavigation" cellSpacing="0" cellPadding="0" width="100%" border="0">
+        <tr> 
+          <td class="left" width="100%">
+            <p align="left"><font color="#FFFFFF" size="1" face="Arial, Verdana, Geneva, Helvetica">&nbsp;<a href="http://my.mot.com/portal/site/engineering/menuite
+m.90a5c44706409ef76802ca2555b400a0" style="color: #FFFFFF">Global Quality Operations
+            </a>|<a href="http://my.mot.com/go/cam" style="color: #FFFFFF">CA&amp;M Portal</a><a style="color: #FFFFFF"></a></font></p>
+          </td>
+          <td class="right"><img border="0" src="images/75color.gif"></td>
+        </tr>
+      </table>
+      <!--Begin IntranetTopNavigation-->
+      <!-- end: (GN) Global Navigation -->
+      <table width="1070" cellspacing="0" border="0" class="grid1" id="home" height="30">
+        <tr> 
+          <td class="columnL" width="180" height="28"> 
+            <!-- begin: (CCa) Convenience Choice -->
+            <!--webbot
+              bot="SaveResults"
+              U-File="H:\3g_udrive\scm\SAS\DCML\homepage\_private\form_results.txt"
+              S-Format="TEXT/CSV" S-Label-Fields="TRUE" --><table width='164' border='0' cellpadding='0' cellspacing='0' bgcolor="#FF6600" class='entrylinks' height="318"> 
+              <!-- change class in TR tag to 'bg2' for alternate background color -->
+      </table>
+              <table border="0" cellpadding="0" cellspacing="1" width="103%">
+                <tr>
+                  <td width="100%">
+                    <table width="100%" cellpadding="0" cellspacing="0" border="0" class="LeftHandNavigation" summary="Layout table for Left Hand Navigation module.">
+                      <tr>
+                        <td class="container">
+                          <ul class="main">
+                            <li><a class="navdark" href="http://compass.mot.com/go/tco"><font color="#000000">N&amp;E TCO</font></a></li>
+                            <li><a class="navDark" href="http://dcmlweb.cig.mot.com"><font color="#000000">DCML
+                              (Document Management Library Management)</font></a></li>
+                            <li><a class="navDark" href="http://compass.mot.com/web/cqcm"><font color="#000000">CQCM / CMBP / CCM</font></a></li>
+                            <li><a class="navDark" href="http://ssmt.mot.com"><font color="#000000">SSMT
+                              (Software Size Measurement Tool)</font></a></li>
+                          </ul>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+              
+              <table border="0" cellpadding="0" cellspacing="1" width="100%">
+                <tr>
+                  <td width="100%">
+                    <hr>
+                  </td>
+                </tr>
+                <tr>
+                  <td bgcolor="#FFFFFF" class="container">
+                    <table width="100%" cellpadding="0" cellspacing="0" border="0" class="FunctionalNavigation" summary="Layout table for Left Hand Navigation module.">
+                      <tr>
+                        <td bgcolor="#FFFFFF" class="container">
+                          <ul class="main">
+                            <li><a class="navDark" href="http://rc.mot.com/"><font color="#000000">Resolution
+                              Center</font></a></li>
+                            <li><a class="navDark" href="http://meet.mot.com/"><font color="#000000">Conferencing</font></a></li>
+                            <li><a class="navDark" href="http://motds.mot.com/"><font color="#000000">Enterprise
+                              Directory</font></a></li>
+                            <li><a class="navDark" href="http://compass.mot.com/cgi?func=doc.timetemp"><font color="#000000">World
+                              Clock</font></a></li>
+                          </ul>
+                        </td>
+                      </tr>
+                    </table>
+                   </td>
+                </tr>
+
+ <td bgcolor="#FFFFFF" class="container">
+                    <table width="100%" cellpadding="0" cellspacing="0" border="
+0" class="FunctionalNavigation" summary="Layout table for Left Hand Navigation m
+odule.">
+                      <tr>
+                        <td bgcolor="#FFFFFF" class="container">
+                         <ul>
+                            <li><a class="navDark" bgcolor="ccffff"><font color="#000000"><b>CIPT Contacts:</b></font></a></li>
+                          </ul>
+							<!--
+                             <a class="navDark" href="mailto:QA1039@email.mot.com"><font color="#000000" >&#160 &#160 &#8226 Kent Farbelow (Project Lead)</font>
+</a><br>
+							-->
+                            <a class="navDark" href="mailto:JHAN2@email.mot.com"><font color="#000000">&#160 &#160 &#8226 Jeff (Baoguo) Han</font></a><br>
+                            <a class="navDark" href="mailto:JRAFFIN1@email.mot.com"><font color="#000000">&#160 &#160 &#8226 Johan Raffin</font></a><br>
+                            <a class="navDark" href="mailto:CGOLASZ1@email.mot.com"><font color="#000000">&#160 &#160 &#8226 Carl Golaszewski</font></a><br>
+                       </td>
+                      </tr>
+                    </table>
+
+
+                <tr>
+                  <td width="100%">
+                    <p align="center"> 
+                  </td>
+                </tr>
+                <tr>
+                  <td width="100%">
+                  </td>
+                </tr>
+              </table>
+              
+      <!--  end : (CCa) Convenience Choice -->
+      <!-- begin: Left Hand Navigation -->
+      
+    <td class='columnR' width='882' height="28"> <table width='100%' cellpadding='0' cellspacing='0' border='0' class='grid2' height="759">
+        <td class='columnL' width='100%' height="759"> <table width='729' cellpadding='0' cellspacing='0' border='0'
+                         class='BasicCopy' summary='Layout table for Basic Copy module.' height="430">
+            <tr> 
+              <td class='copy' width="483" height="430"> 
+                <!-- begin:BasicCopy -->
+                <table width='409' cellpadding='0' cellspacing='0' border='0' class='PageSubHeader1'>
+                  <td class='flag' width="7"><font size="2">&nbsp;</font></td>
+                  <td class='banner' width='398'><h2><font size="2">Code
+                    Inspection Package Tool (CIPT)</font></h2></td>
+                </table>
+                <!-- end:PageHeader1 -->
+                <!-- begin: Content-->
+                <table border="0" cellpadding="0" cellspacing="1" width="428" height="655">
+                  <tr>
+                    <td width="406" height="14">
+                    </td>
+                    <td width="16" height="14"></td>
+                  </tr>
+                  <tr>
+                    <td width="406" height="14">
+                    </td>
+                    <td width="16" height="14"></td>
+                  </tr>
+                  <tr>
+                    <td width="406" height="26">
+                      &nbsp;
+                      <p>CIPT has been upgraded to version <script language="javascript">document.write(cipt_ver)</script>. Please refer
+                      to the <a href="http://dcmlweb.cig.mot.com/view/dcml_view/usr/vob/sc/dcml/WSG/TOOL/CM/RLS/004/CIPTRelease_Notes.pdf" target="_blank">Release
+                      Notes</a> for details of changes included in this release.</td>
+                    <td width="16" height="26"></td>
+                  </tr>
+                  <tr>
+                    <td width="406" height="14">
+                    </td>
+                    <td width="16" height="14"></td>
+                  </tr>
+                  <tr>
+                    <td width="406" height="14">
+                    </td>
+                    <td width="16" height="14"></td>
+                  </tr>
+                  <tr>
+                    <td width="406" height="14">
+                    </td>
+                    <td width="16" height="14"></td>
+                  </tr>
+                  <tr>
+                    <td width="406" height="14">
+                    </td>
+                    <td width="16" height="14"></td>
+                  </tr>
+                  <tr>
+                        <td width="100%" height="13"><b>What is CIPT?</b></td>
+                  </tr>
+                  <tr>
+                        <td width="100%" height="38">CIPT is a web based Code Inspection
+                          Package Tool that provides delta code line count&nbsp;
+                          based on a Sablime MR, a ClearQuest CR or combination
+                          of branch type name and vob location. The main purpose
+                          of this tool is for code inspection preparation.</td>
+                  </tr>
+                  <tr>
+                    <td width="406" height="14">
+                    </td>
+                    <td width="16" height="14"></td>
+                  </tr>
+                  <tr>
+                            <td width="100%" height="18">
+                            <b><font size="2">CIPT FAQ</font></b>
+                            </td>
+                  </tr>
+                  <tr>
+                            <td width="100%" height="134">
+                              <p>It is recommended that you read the 
+                              <script language="javascript">
+                              document.write("<a style='color: #0000FF' target='_blank' href='" + cipt_addr + "/src/html/help/faq.html'>")
+                              </script>
+                              CIPT Frequently Asked Questions</a> (FAQ) first, before
+                              opening an SR against the tool.&nbsp;</p>
+                            </td>
+                  </tr>
+                  <tr>
+                            <td width="100%" height="14"><script language="javascript">document.write(cipt_ver)</script> Release Date:  <script language="javascript">document.write(cipt_rdate)</script></td>
+                  </tr>
+                  <tr>
+                            <td width="100%" height="45">Common Applications &amp; Metrics - CIPT Development Team
+                              <p>&nbsp;</td>
+                  </tr>
+                  <tr>
+                            <td width="100%" height="20"><img border="0" src="images/arrowBtnSmBlue.gif">Archive&nbsp;</td>
+                  </tr>
+                  <tr>
+                  <td class='copy' width="406" height="201"> 
+                    <table border="0" cellpadding="0" cellspacing="1" width="100%">
+                      <tr>
+                        <td width="100%"></td>
+                      </tr>
+                      <tr>
+                        <td width="100%">
+                          <p align="left"></td>
+                      </tr>
+                      <tr>
+                        <td width="100%"> 
+                        &nbsp;
+                        <p>&nbsp; 
+                        </td>
+                      </tr>
+                      <tr>
+                        <td width="100%"></td>
+                      </tr>
+                      <tr>
+                        <td width="100%"></td>
+                      </tr>
+                    </table>
+                    </td>
+                  <td class='copy' width="16" height="201"> 
+                    </td>
+                  </tr>
+                  <tr>
+                    <td width="406" height="14"></td>
+                    <td width="16" height="14"></td>
+                  </tr>
+                </table>
+                <table width="100%" cellpadding="0" cellspacing="0" border="0" class="NewsBriefs">
+                  <!-- end:BasicCopy -->
+                </table>
+                <!--  end : News Briefs -->
+        <td align='right' valign='top' width="222" height="430">  
+                  <table border="0" cellpadding="0" cellspacing="1" width="100%" height="457">
+                    <tr>
+                <td bgcolor="#9BC4F0" width="182" height="423">
+                <p align="center">&nbsp; 
+                  <table border="0" cellpadding="0" cellspacing="1" width="169%" height="20" bgcolor="#9BC4F0">
+                    <tr>
+                      <td width="100%" height="18">
+                        <img border="0" src="images/arrowBtnSmBlue.gif" width="15" height="15">
+                        <font size="2" color="brown"><b>CIPT <script language="javascript">document.write(cipt_ver)</script></b></font></td>
+                    </tr>
+                    
+                    <script language="javascript">
+                    document.write("<form action='" +cipt_addr+ "/src/perl/ciptSecurity.cgi' method='post' enctype='text/html' target='_top' name='cipt_login_form' onSubmit='return login_check();'>");
+                    </script>
+
+                    <tr>
+                    <td align=left>
+                    <table border=0 cellspacing=1 cellpadding=1>
+                    <script language="javascript">
+                      if ( ! cipt_verified ) {
+                        document.write("<tr><td>CoreID</td><td align=left><input type='text' name='cid' value='" +cipt_cid +"' size=20 maxlength=20></td></tr><tr><td>Password</td><td align=left><input type='password' name='pswd' value='' size=20 maxlength=20></td></tr><tr><td colspan=2><input type='checkbox' name='rememberme'>&nbsp;&nbsp;Remember me</td></tr>");
+                        //error messages
+                        if ( cipt_error != ''  ) {
+                            document.write("<tr><td colspan=2><font size='2' color='brown'><b>" + cipt_error + "</b></font></td></tr>");
+                        }
+                        document.write("<tr><td><input type='submit' name='submit' value='Start CIPT'></td></tr>");
+
+                      }  else {
+                        document.write("<tr><td colspan=2><input type='button' value='Start CIPT' onClick=\"window.location.href='" + cipt_addr + "'\"></td></tr>");
+                    
+                    }
+                      </script>
+
+                    </table></td></tr>
+                    </tr>
+                    </form>
+
+                  </table>
+                  <table width="321" height="21">
+                    <tbody>
+                      <tr>
+                        <td align="right" colSpan="2" width="313" height="17">
+                          <hr>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <table border="0" cellpadding="0" cellspacing="0" width="168%" height="115">
+                    <tr>
+                      <td width="100%" bgcolor="#9BC4F0" height="21" colspan="3" valign="top"><img border="0" src="images/arrowBtnSmBlue.gif" width="15" height="15">
+                        <b>Documentation</b></td>
+                    </tr>
+                    <tr>
+                      <td width="11%" bgcolor="#9BC4F0" height="20">&nbsp;</td>
+                      <td width="89%" bgcolor="#9BC4F0" height="20" colspan="2"><font size="1">o.
+                        </font>
+                        <script language="javascript">
+                        document.write("<a href='" +cipt_addr + "/doc/CIPT_UG.pdf' target='_blank'>")
+                        </script>
+                        <font size="1">User Guide</font></a><font size="1"> (pdf)</font></td>
+                    </tr>
+                    <tr>
+                      <td width="11%" bgcolor="#9BC4F0" height="20">&nbsp;</td>
+                      <td width="89%" bgcolor="#9BC4F0" height="20" colspan="2"><font size="1">o.
+                        </font><a target="_blank" href="http://dcmlweb.cig.mot.com/view/dcml_view/usr/vob/sc/dcml/WSG/PROC/CM/TRN/010/CIPT_training.pdf"><font size="1">Training
+                        Slides</font></a><font size="1"> (pdf)</font></td>
+                    </tr>
+                    <tr>
+                      <td width="100%" bgcolor="#9BC4F0" height="21" colspan="3"><img border="0" src="images/arrowBtnSmBlue.gif">
+                        <b>Support and Administration</b></td>
+                    </tr>
+                    <tr>
+                      <td width="11%" bgcolor="#9BC4F0" height="21" style="padding: 1">&nbsp;</td>
+                      <td width="89%" bgcolor="#9BC4F0" height="21" style="padding: 1" colspan="2">
+                        <table border="0" cellpadding="0" cellspacing="1" width="100%">
+                          <tr>
+                            <td width="100%" colspan="2"><font size="1">o. <a href="http://maillist.mot.com" target="_blank">
+                 Subscribe</a> to the CIPT Customers (CIPTCUST) mailing list to receive release notes and other
+                 pertinent information.  After logging in to the maillist site, select the "Maillist Membership"
+                 link.&nbsp;</font></td>
+                          </tr>
+
+                          <tr>
+                            <td width="100%" bgcolor="#9BC4F0" height="21" style="padding: 1" colspan="2"><font size="1">o.
+                        <a href="http://cqcmapps.mot.com" target=_blank>Request a VOB to be added
+                        </a> by opening an SR in INDEV database against the following System, Product, and Component.&nbsp;&nbsp;
+            Provide the VOB server host name, the VOB path, and the VOB tag in your request.&nbsp;&nbsp;
+            VOBs not located on the Arlington Heights network must be MultiSited to AH first.</font></td>
+                          </tr>
+                          <tr>
+                            <td width="7%"></td>
+                            <td width="93%"><font size="1"><font color="#0000FF">System&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              : </font><i>Common_Apps_Metrics</i>&nbsp;&nbsp;</font></td>
+                          </tr>
+                          <tr>
+                            <td width="7%"></td>
+                            <td width="93%"><font size="1"><font color="#0000FF">Product&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              :</font> <i>Common_Apps_Support</i></font></td>
+                          </tr>
+                          <tr>
+                            <td width="7%"></td>
+                            <td width="93%"><font size="1"><font color="#0000FF">Component:</font><font color="#0000FF">
+                              </font><i>CIPT_Support</i></font></td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td width="11%" bgcolor="#9BC4F0" height="21" style="padding: 1">&nbsp;</td>
+                      <td width="89%" bgcolor="#9BC4F0" height="21" style="padding: 1" colspan="2"><font size="1">o.
+                        <a href="http://cdma.gtss.mot.com/scm/pager.html" target=_blank>Pager
+                        Support (for <font color="#FF3300"><b>Critical</b></font>
+                        issue only)</a></font></td>
+                    </tr>
+                    <tr>
+                      <td width="11%" bgcolor="#9BC4F0" height="21" style="padding: 1">&nbsp;</td>
+                      <td width="89%" bgcolor="#9BC4F0" height="21" style="padding: 1" colspan="2"><font size="1">o.
+                        <a href="http://cqcmweb.mot.com/CQweb/account/mgmt.asp" target="_blank">Request for a CQCM / CMBP CQ account</a></font></td>
+                    </tr>
+                    <tr>
+                      <td width="11%" bgcolor="#9BC4F0" height="21" style="padding: 1">&nbsp;</td>
+                      <td width="89%" bgcolor="#9BC4F0" height="21" style="padding: 1" colspan="2"><font size="1">o.
+                      <script language="javascript">
+                      document.write("<a href='" + cipt_addr + "/src/html/help/faq.html' target='_blank'>")
+                      </script>
+                        CIPT FAQs</a></font></td>
+                    </tr>
+                    <tr>
+                      <td width="100%" bgcolor="#9BC4F0" height="21" colspan="3">&nbsp;<img border="0" src="images/arrowBtnSmBlue.gif">
+                        <b>Development</b></td>
+                    </tr>
+                    <tr>
+                      <td width="11%" bgcolor="#9BC4F0" height="21">&nbsp;</td>
+                      <td width="89%" bgcolor="#9BC4F0" height="21" colspan="2"><font size="1">o.
+                        Request for tool enhancement, new feature or report for
+                        a fault by opening an SR in INDEV database with
+                        the following items selected:&nbsp;</font></td>
+                    </tr>
+                    <tr>
+                      <td width="11%" bgcolor="#9BC4F0" height="15">&nbsp;</td>
+                      <td width="7%" bgcolor="#9BC4F0" height="15">&nbsp;</td>
+                      <td width="82%" bgcolor="#9BC4F0" height="15"><font size="1"><font color="#0000FF">System&nbsp;&nbsp;&nbsp;&nbsp;
+                        : </font><i>Common_Apps_Metrics</i>&nbsp;&nbsp;</font></td>
+                    </tr>
+                    <tr>
+                      <td width="11%" bgcolor="#9BC4F0" height="16">&nbsp;</td>
+                      <td width="7%" bgcolor="#9BC4F0" height="16">&nbsp;</td>
+                      <td width="82%" bgcolor="#9BC4F0" height="16"><font size="1"><font color="#0000FF">Product&nbsp;&nbsp;&nbsp;&nbsp;
+                        :</font> <i>Common_Apps_Support</i>&nbsp;</font></td>
+                    </tr>
+                    <tr>
+                      <td width="11%" bgcolor="#9BC4F0" height="14">&nbsp;</td>
+                      <td width="7%" bgcolor="#9BC4F0" height="14"></td>
+                      <td width="82%" bgcolor="#9BC4F0" height="14"><font size="1"><font color="#0000FF">Component
+                        : </font><i>CIPT_Support</i></font></td>
+                    </tr>
+                    <tr>
+                      <td width="11%" bgcolor="#9BC4F0" height="21">&nbsp;</td>
+                      <td width="89%" bgcolor="#9BC4F0" height="21" colspan="2"><font size="1">o.
+                        <a href="http://engmetrics.corp.mot.com/CAM_Portal/Release
+Schedule/showSchedule.aspx?file=CIPT.xml" target="_blank">CIPT
+                        Release Schedule</a></font></td>
+                    </tr>
+                  </table>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td width="100%" height="14"></td>
+                    </tr>
+                  </table>
+          </td>
+
+              <td width="19" height="430">
+
+                  <p></p>
+                <p></p></table></td>
+          </table></td>
+        </tr>
+      </table>
+<!-- begin: (GF) Global Footer (CDA Common Footer) -->
+<p></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table width="100%" cellpadding="0" cellspacing="0" border="0" class="GlobalFooter">
+  <tr class="bg"> 
+    <td class="nav"> <a class="navLight" href="http://www.mot.com/home" style="color: #FFFFFF; font-size: 8pt">www.motorola.com</a>&nbsp;&nbsp;|&nbsp;
+      <a class="navLight" href="http://www.mot.com/legal" style="font-size: 8pt; color: #FFFFFF">Terms of Use</a>&nbsp;&nbsp;|&nbsp;
+      <a class="navLight" href="http://www.mot.com/privacy" style="color: #FFFFFF; font-size: 8pt">Privacy Practices</a>&nbsp;&nbsp;|&nbsp;
+      <a class="navLight" href="mailto:a11465@motorola.com" style="color: #FFFFFF; font-size: 8pt">Contact</a> 
+    </td>
+    <td class="copyright" align='right'> <font size="1">?Copyright 1994-2007
+      Motorola, Inc. All rights reserved.</font> </td>
+  </tr>
+</table>
+<!--  end : (GF) Global Footer (CDA Common Footer) -->
+    </table>
+</body>
