@@ -421,6 +421,7 @@ std::string RawPostForm(sockaddr_in &addr, std::string &url, std::string &cookie
                 throw (std::string("FAILED: Cannot read ") + filename);
             }
 
+            int readCount = 0;
             char buf[1024];
             DWORD bytes = 0;
             while(TRUE == ReadFile(hHandle, buf, 1024, &bytes, NULL)){
@@ -428,12 +429,20 @@ std::string RawPostForm(sockaddr_in &addr, std::string &url, std::string &cookie
                     break;
                 }
 
+                readCount += bytes;
+
                 sFields += std::string(buf, bytes);
             }
 
             CloseHandle(hHandle);
 
-            sFields += "\r\n";
+            if(readCount == 0) {
+                // add a blank line for empty files ...
+                sFields += "\r\n\r\n";
+            }
+            else {
+                sFields += "\r\n";
+            }
         }
     }
 
